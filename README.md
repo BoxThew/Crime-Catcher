@@ -10,15 +10,15 @@ By combining local real-time analysis with advanced cloud-based verification, Cr
 
 ## Demo
 
-![Dashboard Overview](https://placehold.co/600x400?text=Placeholder+[Dashboard-Screenshot])
+![Dashboard Overview](images/frontend-1.png)
 <br>
 _*Real-time admin dashboard displaying active feeds and recent alerts.*_
 
-![Eyepop Detection](https://placehold.co/600x400?text=Placeholder+[Eyepop-Detection]) 
+![Eyepop Detection](images/frontend-2.png) 
 <br>
 _*Crime Assessment using EyePop.ai*_
 
-![Alert](https://placehold.co/600x400?text=Placeholder+[Alert-Notification])
+![Alert](images/email-log.png)
 <br>
 _*Detailed incident report with snapshots.*_
 
@@ -74,4 +74,5 @@ _*Detailed incident report with snapshots.*_
 — Inspired by the increasing incidents of criminal activities throughout the world and the need to turn existing passive security systems into intelligent security guardians. 
 
 ---
+
 
