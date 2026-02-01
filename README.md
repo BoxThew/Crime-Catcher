@@ -18,7 +18,7 @@ _*Real-time admin dashboard displaying active feeds and recent alerts.*_
 <br>
 _*Crime Assessment using EyePop.ai*_
 
-![Alert](images/email-log.png)
+![Alert](images/email-log.jpg)
 <br>
 _*Detailed incident report with snapshots.*_
 
@@ -74,5 +74,6 @@ _*Detailed incident report with snapshots.*_
 — Inspired by the increasing incidents of criminal activities throughout the world and the need to turn existing passive security systems into intelligent security guardians. 
 
 ---
+
 
 
