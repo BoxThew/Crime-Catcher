@@ -10,11 +10,11 @@ By combining local real-time analysis with advanced cloud-based verification, Cr
 
 ## Demo
 
-![Dashboard Overview](images/frontend-1.png)
+![Dashboard Overview](images/frontend-2.png)
 <br>
 _*Real-time admin dashboard displaying active feeds and recent alerts.*_
 
-![Eyepop Detection](images/frontend-2.png) 
+![Eyepop Detection](images/eyepop-1.png) 
 <br>
 _*Crime Assessment using EyePop.ai*_
 
@@ -74,6 +74,7 @@ _*Detailed incident report with snapshots.*_
 — Inspired by the increasing incidents of criminal activities throughout the world and the need to turn existing passive security systems into intelligent security guardians. 
 
 ---
+
 
 
 
