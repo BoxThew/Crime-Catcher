@@ -4,9 +4,9 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "Equilibrium"
+name = "crime_catcher"
 version = "0.1.0"
-description = "Measures coolness under pressure."
+description = "Detects and reports crimes on security cameras."
 readme = "README.md"
 requires-python = ">=3.10"
 
@@ -21,4 +21,4 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [project.scripts]
-equilibrium = "Equilibrium.__main__:main"
+crime_catcher = "Crime_Catcher.__main__:main"
