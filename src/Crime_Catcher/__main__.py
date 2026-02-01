@@ -1,6 +1,6 @@
-from .Video import video
+from .Analyze import analyze as a
+
 if __name__ == '__main__':
     print("This is main!")
-
-    cam = video.Camera()
-    cam.active_cam()
+    a.active_cam()
+    

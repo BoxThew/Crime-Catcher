@@ -3,6 +3,8 @@ import time
 import json
 import datetime
 from pathlib import Path
+import threading
+from ..Report.report import Report
 
 from dotenv import load_dotenv
 from eyepop import EyePopSdk
@@ -10,6 +12,8 @@ from eyepop.worker.worker_types import Pop, InferenceComponent
 import os
 
 load_dotenv()
+
+
 BASE_DIR = Path(__file__).resolve().parents[3]
 ASSETS_DIR = BASE_DIR / "evidence"
 
@@ -31,8 +35,9 @@ def save_evidence(orig_img, status, detail, conf_score):
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     img_filename = f"evidence{timestamp}.jpg"
+    img_path = ASSETS_DIR / img_filename
+    cv2.imwrite(str(img_path), orig_img)
 
-    cv2.imwrite(img_filename, orig_img)
     log_entry = {
        "timestamp": datetime.datetime.now().isoformat(),
        "event_type": status,
@@ -40,6 +45,8 @@ def save_evidence(orig_img, status, detail, conf_score):
        "confidence_score": conf_score,
        "evidence_file": img_filename
    }
+    
+
 
     json_file = ASSETS_DIR / "incident_log.json"
     data = []
@@ -59,6 +66,8 @@ def save_evidence(orig_img, status, detail, conf_score):
 
 
         print(f"\nIncident log saved: {json_file}")
+
+    return log_entry
 
 
 
@@ -158,6 +167,7 @@ def analyze_img(img_path):
 
 
            # Desicion
+           
            status = "UNKNOWN"
            detail = ""
            conf_score = 0
@@ -203,9 +213,12 @@ def analyze_img(img_path):
            print(f"RESULT: {status} ({detail})")
 
 
-           # saves evidence if not secure
+           # saves evidence if not secure and reports it
            if status != "SECURE":
-               save_evidence(frame, status, detail, conf_score)
+               data = save_evidence(frame, status, detail, conf_score)
+               rep = Report()
+               rep.send_email(data)
+
 
 
            return status
@@ -214,3 +227,44 @@ def analyze_img(img_path):
    except Exception as e:
        print(f"ERROR: {e}")
        return "ERROR"
+   
+
+def active_cam(capture_every_seconds=15):
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        print("ERROR: Could not open Camera.")
+        return
+
+    last_capture_time = 0
+    analyzing = False
+
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+
+        cv2.imshow("Security Cam", frame)
+
+        current_time = time.time()
+        if (current_time - last_capture_time >= capture_every_seconds) and (not analyzing):
+            last_capture_time = current_time
+            analyzing = True
+
+            temp_path = str(ASSETS_DIR / "cyper.jpg")
+            cv2.imwrite(temp_path, frame)
+
+            def job():
+                nonlocal analyzing
+                try:
+                    print("\nCapturing frame")
+                    analyze_img(temp_path)  
+                finally:
+                    analyzing = False
+
+            threading.Thread(target=job, daemon=True).start()
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()

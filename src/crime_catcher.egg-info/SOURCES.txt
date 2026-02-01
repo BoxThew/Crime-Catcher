@@ -6,8 +6,6 @@ src/Crime_Catcher/Analyze/__init__.py
 src/Crime_Catcher/Analyze/analyze.py
 src/Crime_Catcher/Report/__init__.py
 src/Crime_Catcher/Report/report.py
-src/Crime_Catcher/Video/__init__.py
-src/Crime_Catcher/Video/video.py
 src/crime_catcher.egg-info/PKG-INFO
 src/crime_catcher.egg-info/SOURCES.txt
 src/crime_catcher.egg-info/dependency_links.txt
