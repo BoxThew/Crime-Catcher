@@ -48,14 +48,14 @@ _*Detailed incident report with snapshots.*_
 ## Tech Stack
 
 * **Frontend:**
-    * ⚛️ **React** (Admin Dashboard)
+    *  **React** (Admin Dashboard)
 * **Backend & AI:**
-    * 🐍 **Python** (Core Logic)
-    * 👁️ **OpenCV** (Real-time Computer Vision)
-    * 🧠 **Eyepop.AI** (Advanced Image Analysis & Verification)
-    * 🚀 **YOLOv8** (Object Detection Model)
+    *  **Python** (Core Logic)
+    *  **OpenCV** (Real-time Computer Vision)
+    *  **Eyepop.AI** (Advanced Image Analysis & Verification)
+    *  **YOLOv8** (Object Detection Model)
 * **Infrastructure:**
-    * 📂 **Local Storage/Database** (Evidence logging)
+    *  **Local Storage/Database** (Evidence logging)
 
 ---
 
@@ -74,6 +74,7 @@ _*Detailed incident report with snapshots.*_
 — Inspired by the increasing incidents of criminal activities throughout the world and the need to turn existing passive security systems into intelligent security guardians. 
 
 ---
+
 
 
 
